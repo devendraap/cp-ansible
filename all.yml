@@ -1,7 +1,7 @@
 ---
 - name: Generate CA for Self Signed Certs
   connection: local
-  hosts: zookeeper[0]
+  hosts: 127.0.0.1
   tags: certificate_authority
   tasks:
   - import_role:
@@ -13,7 +13,7 @@
 
 - name: Host Prerequisites
   connection: local
-  hosts: zookeeper:kafka_broker:schema_registry:kafka_connect:ksql:control_center:kafka_rest
+  hosts: 127.0.0.1
   tags: common
   environment: "{{ proxy_env }}"
   tasks:
@@ -22,7 +22,7 @@
 
 - name: Zookeeper Provisioning
   connection: local
-  hosts: zookeeper
+  hosts: 127.0.0.1
   tags: zookeeper
   environment: "{{ proxy_env }}"
   tasks:
@@ -31,7 +31,7 @@
 
 - name: Kafka Broker Provisioning
   connection: local
-  hosts: kafka_broker
+  hosts: 127.0.0.1
   tags: kafka_broker
   environment: "{{ proxy_env }}"
   tasks:
@@ -40,7 +40,7 @@
 
 - name: Schema Registry Provisioning
   connection: local
-  hosts: schema_registry
+  hosts: 127.0.0.1
   tags: schema_registry
   environment: "{{ proxy_env }}"
   tasks:
@@ -49,7 +49,7 @@
 
 - name: Kafta Connect Provisioning
   connection: local
-  hosts: kafka_connect
+  hosts: 127.0.0.1
   tags: kafka_connect
   environment: "{{ proxy_env }}"
   tasks:
@@ -58,7 +58,7 @@
 
 - name: KSQL Provisioning
   connection: local
-  hosts: ksql
+  hosts: 127.0.0.1
   tags: ksql
   environment: "{{ proxy_env }}"
   tasks:
@@ -67,7 +67,7 @@
 
 - name: Kafka Rest Provisioning
   connection: local
-  hosts: kafka_rest
+  hosts: 127.0.0.1
   tags: kafka_rest
   environment: "{{ proxy_env }}"
   tasks:
@@ -76,7 +76,7 @@
 
 - name: Control Center Provisioning
   connection: local
-  hosts: control_center
+  hosts: 127.0.0.1
   tags: control_center
   environment: "{{ proxy_env }}"
   tasks:
