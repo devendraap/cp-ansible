@@ -71,7 +71,7 @@
 - name: Create Zookeeper myid File
   template:
     src: myid.j2
-    dest: "{{zookeeper.properties.dataDir}}/myid"
+    dest: "{{zookeeper.properties.dataDir}}"
     mode: 0555
     owner: "{{zookeeper_user}}"
     group: "{{zookeeper_group}}"
